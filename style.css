@@ -1,96 +1,232 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #121214;
-  color: #e1e1e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #121214; /* Темний фон у стилі альтернативної музики */
+    color: #e1e1e6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* ==========================================
+   2. Шапка сайту (Header)
+   ========================================== */
 header {
-  background: #1f1c2c;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
+    background-color: #1a1a1e;
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid #323238;
 }
 
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #9d4edd; /* Фіолетовий акцент */
+}
+
+header p {
+    color: #a8a8b3;
+    font-size: 1rem;
+}
+
+/* ==========================================
+   3. Навігаційне меню (Спискове меню сайту)
+   ========================================== */
 nav {
-  background: #2a2a32;
-  padding: 10px;
-  text-align: center;
+    background-color: #202024;
+    border-bottom: 1px solid #323238;
 }
 
+/* Прибираємо маркери та вистроюємо в один ряд */
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+    list-style-type: none; /* 1. Прибрати маркери списку */
+    display: flex;         /* 2. Горизонтальний порядок */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 }
 
-nav a {
-  color: #9d4edd;
-  text-decoration: none;
-  font-weight: bold;
+nav ul li {
+    margin: 0;
 }
 
-nav a:hover {
-  text-decoration: underline;
-  color: #ffffff;
+/* Елементи меню (посилання) */
+nav ul li a {
+    display: block;
+    padding: 14px 24px;
+    color: #e1e1e6;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: transparent;
+    /* Додаємо transform до списку анімацій, щоб рух був плавним */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
+/* Реакція на наведення миші (hover) з ефектом «підстрибування» */
+nav ul li a:hover {
+    background-color: #7b2cbf; 
+    color: #ffffff;
+    transform: translateY(-4px); /* Зсуває елемент на 4 пікселі вгору */
+}
+
+/* 3. Реакція на натискання (active) */
+nav ul li a:active {
+    background-color: #5a189a; /* Зміна кольору фону при кліку */
+}
+
+/* ==========================================
+   4. Основний макет (Flexbox container)
+   ========================================== */
 .container {
-  display: flex;
-  min-height: 400px;
+    display: flex; /* Верстка колонок за допомогою Flexbox */
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 20px;
+    gap: 20px;
 }
 
+/* Бокова колонка (Sidebar) */
 .sidebar {
-  flex-grow: 1;
-  flex-basis: 250px;
-  background-color: #1a1a20;
-  padding: 20px;
-  border-right: 1px solid #32323d;
+    flex: 1;
+    min-width: 250px;
+    background-color: #1a1a1e;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #29292e;
+    height: fit-content;
 }
 
+.sidebar h3 {
+    color: #9d4edd;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #323238;
+    padding-bottom: 6px;
+}
+
+.sidebar ul, .sidebar ol {
+    padding-left: 20px;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Основний контент (Main content) */
 .main-content {
-  flex-grow: 3;
-  padding: 20px;
-  background-color: #1e1e24;
+    flex: 3;
+    background-color: #1a1a1e;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #29292e;
+}
+
+.main-content h2 {
+    color: #ffffff;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #7b2cbf;
+    padding-bottom: 8px;
+}
+
+.main-content h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #c480ff;
+}
+
+.main-content p {
+    margin-bottom: 15px;
+    color: #c4c4cc;
+}
+
+.main-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 15px 0;
+    border: 1px solid #323238;
 }
 
 article {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #7b2cbf;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 4px;
+    background-color: #202024;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #7b2cbf;
 }
 
+/* ==========================================
+   5. Стилізація таблиць (Tracklist)
+   ========================================== */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #202024;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 th, td {
-  padding: 10px;
-  border: 1px solid #32323d;
-  text-align: left;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #29292e;
 }
 
 th {
-  background-color: #2a2a32;
+    background-color: #7b2cbf;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-img {
-  max-width: 100%;
-  border-radius: 8px;
+tr:hover {
+    background-color: #29292e;
 }
 
+/* ==========================================
+   6. Підвал сайту (Footer)
+   ========================================== */
 footer {
-  background: #1f1c2c;
-  color: #a0a0b0;
-  text-align: center;
-  padding: 15px;
-  border-top: 1px solid #32323d;
+    background-color: #1a1a1e;
+    color: #a8a8b3;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    border-top: 1px solid #323238;
+}
+
+/* ==========================================
+   7. Адаптивність для мобільних пристроїв
+   ========================================== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        text-align: center;
+    }
 }
